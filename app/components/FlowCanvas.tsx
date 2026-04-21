@@ -1,11 +1,24 @@
 "use client";
 
+
 import { useEffect, useState } from "react";
 
-export default function FlowCanvas({ rules, executionSteps }) {
-  const [activeNode, setActiveNode] = useState(null);
+type Rule = {
+  id: string;
+  trigger: string;
+  condition?: string;
+  actionText: string;
+};
 
-  const grouped = rules.reduce((acc, rule) => {
+type FlowCanvasProps = {
+  rules: Rule[];
+  executionSteps: string[];
+};
+
+export default function FlowCanvas({ rules, executionSteps }: FlowCanvasProps) {
+  const [activeNode, setActiveNode] = useState<string | null>(null);
+
+  const grouped = rules.reduce<Record<string, Rule[]>>((acc, rule) => {
     if (!acc[rule.trigger]) acc[rule.trigger] = [];
     acc[rule.trigger].push(rule);
     return acc;
