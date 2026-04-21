@@ -1,8 +1,22 @@
 "use client";
 
+
 import { useState } from "react";
 
-export default function RuleBuilder({ addRule }) {
+type Rule = {
+  id: string;
+  trigger: string;
+  condition?: (state: any) => boolean;
+  conditionText?: string;
+  actionText: string;
+  action: (state: any, emit?: (event: string) => void) => any;
+};
+
+type RuleBuilderProps = {
+  addRule: (rule: Rule) => void;
+};
+
+export default function RuleBuilder({ addRule }: RuleBuilderProps) {
   const [trigger, setTrigger] = useState("BUTTON_CLICK");
   const [action, setAction] = useState("INCREMENT");
   const [condition, setCondition] = useState("NONE");
