@@ -1,6 +1,19 @@
 "use client";
 
-export default function RulesPanel({ rules, activeRule }) {
+type Rule = {
+  id: string;
+  trigger: string;
+  condition?: (state: any) => boolean;
+  conditionText?: string;
+  actionText: string;
+};
+
+type RulesPanelProps = {
+  rules: Rule[];
+  activeRule: string | null;
+};
+
+export default function RulesPanel({ rules, activeRule }: RulesPanelProps) {
   return (
     <div className="p-6 border rounded-xl">
       <h2 className="text-xl font-bold mb-4">Active Rules</h2>
