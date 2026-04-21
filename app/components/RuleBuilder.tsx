@@ -6,10 +6,13 @@ import { useState } from "react";
 type Rule = {
   id: string;
   trigger: string;
-  condition?: (state: any) => boolean;
+  condition?: (state: { counter: number; color: string; message?: string }) => boolean;
   conditionText?: string;
   actionText: string;
-  action: (state: any, emit?: (event: string) => void) => any;
+  action: (
+    state: { counter: number; color: string; message?: string },
+    emit?: (event: string) => void
+  ) => { counter?: number; color?: string; message?: string };
 };
 
 type RuleBuilderProps = {
@@ -28,9 +31,9 @@ export default function RuleBuilder({ addRule }: RuleBuilderProps) {
 
       condition:
         condition === "GT3"
-          ? (state) => state.counter > 3
+          ? (state: { counter: number }) => state.counter > 3
           : condition === "GT5"
-          ? (state) => state.counter > 5
+          ? (state: { counter: number }) => state.counter > 5
           : undefined,
 
       conditionText:
@@ -49,7 +52,10 @@ export default function RuleBuilder({ addRule }: RuleBuilderProps) {
           ? "Show Message"
           : "",
 
-      action: (state, emit) => {
+      action: (
+        state: { counter: number; color: string; message?: string },
+        emit?: (event: string) => void
+      ) => {
         if (action === "INCREMENT") {
           emit && emit("COUNTER_UPDATED");
           return { counter: state.counter + 1 };
