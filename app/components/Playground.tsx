@@ -1,6 +1,15 @@
 "use client";
 
-export default function Playground({ state, dispatch }) {
+type PlaygroundProps = {
+  state: {
+    counter: number;
+    color: string;
+    message?: string;
+  };
+  dispatch: (action: string) => void;
+};
+
+export default function Playground({ state, dispatch }: PlaygroundProps) {
   return (
     <div className="p-6 space-y-4 border rounded-xl">
       <h2 className="text-xl font-bold">Playground</h2>
