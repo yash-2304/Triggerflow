@@ -67,6 +67,8 @@ export default function RuleBuilder({ addRule }: RuleBuilderProps) {
         if (action === "MESSAGE") {
           return { message: "Rule triggered" };
         }
+
+        return {};
       },
     };
 
