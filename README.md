@@ -1,36 +1,79 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+🚀 Triggerflow
 
-## Getting Started
+Triggerflow is a powerful, frontend-based event-driven rule engine designed to handle complex logic with ease. It features priority-based execution, rule chaining, and a real-time animated visualization of the execution flow.
+Built with Next.js, TypeScript, and Tailwind CSS, Triggerflow allows developers to define rules that react to events, manage execution order, and see exactly how data flows through the system.
 
-First, run the development server:
 
-```bash
+✨ Key Features
+⚡ Event-Driven Architecture: Trigger actions based on specific input events.
+🔝 Priority Handling: Fine-grained control over which rules execute first when multiple conditions are met.
+🔗 Rule Chaining: Seamlessly pass the output of one rule as the input to another to create complex workflows.
+📊 Animated Visualization: A dedicated UI to visualize the execution path, making debugging and understanding logic flows intuitive.
+🛠️ Fully Typed: Built with TypeScript for a robust developer experience and type safety.
+
+
+🛠️ Tech Stack
+Framework: Next.js 15 (App Router)
+Language: TypeScript
+Styling: Tailwind CSS
+Linting: ESLint
+
+
+🚀 Getting Started
+Prerequisites
+Node.js 18.x or later
+```
+npm / yarn / pnpm
+
+Installation
+Clone the repository
+
+Bash
+git clone https://github.com/yash-2304/Triggerflow.git
+cd Triggerflow
+Install dependencies
+
+Bash
+npm install
+Run the development server
+
+Bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+Open the app
+Navigate to http://localhost:3000 to see the rule engine in action.
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+📖 How It Works
+Triggerflow operates on a Condition → Action model:
+Events: The system listens for incoming data or triggers.
+Rules: Defined with a specific priority. If the condition matches, the action is queued.
+Engine: Processes the queue, handling chains where one rule's result triggers the next.
+Visualization: The UI renders a graph or flow showing the sequence of triggered rules.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
 
-## Learn More
 
-To learn more about Next.js, take a look at the following resources:
+📁 Project Structure
+Plaintext
+├── app/              # Next.js App Router (Pages and Components)
+├── public/           # Static assets
+├── components/       # Reusable UI components
+├── lib/              # Core Rule Engine logic and utilities
+├── tsconfig.json     # TypeScript configuration
+└── next.config.ts    # Next.js configuration
+🤝 Contributing
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Contributions are welcome! If you have ideas for new features or find a bug, feel free to open an issue or submit a pull request.
+Fork the Project
+Create your Feature Branch (git checkout -b feature/AmazingFeature)
+Commit your Changes (git commit -m 'Add some AmazingFeature')
+Push to the Branch (git push origin feature/AmazingFeature)
+Open a Pull Request
 
-## Deploy on Vercel
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+📄 License
+This project is licensed under the MIT License - see the LICENSE file for details.
+
+Developed by Yash Prajapati
