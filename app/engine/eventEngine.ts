@@ -1,4 +1,15 @@
-import { Rule, EventType } from "@/types/rule";
+
+type EventType = string;
+
+type Rule = {
+  id: string;
+  trigger: EventType;
+  condition?: (state: any) => boolean;
+  action: (
+    state: any,
+    emit: (event: EventType) => void
+  ) => { [key: string]: any } | void;
+};
 
 export class EventEngine {
   private rules: Rule[] = [];
